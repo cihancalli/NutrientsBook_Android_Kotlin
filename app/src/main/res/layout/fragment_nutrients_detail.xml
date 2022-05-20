@@ -7,7 +7,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".NutrientsDetailFragment">
+        tools:context=".view.NutrientsDetailFragment">
 
         <ImageView
             android:id="@+id/imageViewNutrientDetail"
@@ -18,16 +18,20 @@
             android:scaleType="fitCenter"
             android:layout_margin="10dp"
             android:src="@drawable/ic_launcher_background" />
+
         <TextView
             android:id="@+id/textViewNutrientTitleDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/imageViewNutrientDetail"
+            android:layout_centerHorizontal="true"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
             android:text="Nutrient Title Detail"
             android:textSize="20sp"
-            android:textStyle="bold"
-            android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_below="@id/imageViewNutrientDetail"/>
+            android:textStyle="bold" />
 
         <TextView
             android:id="@+id/textViewNutrientCalorieDetail"
@@ -68,10 +72,6 @@
             android:layout_centerHorizontal="true"
             android:layout_margin="10dp"
             android:layout_below="@id/textViewNutrientProteinDetail"/>
-
-
-
-
 
     </RelativeLayout>
 

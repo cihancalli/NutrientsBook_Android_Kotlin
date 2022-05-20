@@ -6,7 +6,7 @@
 
     <fragment
         android:id="@+id/nutrientsListFragment"
-        android:name="com.zerdasoftware.nutrientsbook.NutrientsListFragment"
+        android:name="com.zerdasoftware.nutrientsbook.view.NutrientsListFragment"
         android:label="NutrientsListFragment" >
         <action
             android:id="@+id/action_nutrientsListFragment_to_nutrientsDetailFragment"
@@ -14,7 +14,7 @@
     </fragment>
     <fragment
         android:id="@+id/nutrientsDetailFragment"
-        android:name="com.zerdasoftware.nutrientsbook.NutrientsDetailFragment"
+        android:name="com.zerdasoftware.nutrientsbook.view.NutrientsDetailFragment"
         android:label="NutrientsDetailFragment" >
         <action
             android:id="@+id/action_nutrientsDetailFragment_to_nutrientsListFragment"

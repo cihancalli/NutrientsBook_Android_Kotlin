@@ -1,7 +1,8 @@
-package com.zerdasoftware.nutrientsbook
+package com.zerdasoftware.nutrientsbook.view
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.zerdasoftware.nutrientsbook.R
 
 class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
