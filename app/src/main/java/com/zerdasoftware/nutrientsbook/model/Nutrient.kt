@@ -1,10 +1,19 @@
 package com.zerdasoftware.nutrientsbook.model
 
-data class Nutrient(val nutrientTitle:String?,
-                    val nutrientCalorie:String?,
-                    val nutrientCarbohydrate:String?,
-                    val nutrientProtein:String?,
-                    val nutrientFat:String?,
-                    val nutrientImage:String?,
+import com.google.gson.annotations.SerializedName
+
+data class Nutrient(
+    @SerializedName("isim")
+    val nutrientTitle:String?,
+    @SerializedName("kalori")
+    val nutrientCalorie:String?,
+    @SerializedName("karbonhidrat")
+    val nutrientCarbohydrate:String?,
+    @SerializedName("protein")
+    val nutrientProtein:String?,
+    @SerializedName("yag")
+    val nutrientFat:String?,
+    @SerializedName("gorsel")
+    val nutrientImage:String?,
 ) {
 }
