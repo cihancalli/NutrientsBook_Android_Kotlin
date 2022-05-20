@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nutrients_graph"
+    app:startDestination="@id/nutrientsListFragment">
+
+    <fragment
+        android:id="@+id/nutrientsListFragment"
+        android:name="com.zerdasoftware.nutrientsbook.NutrientsListFragment"
+        android:label="NutrientsListFragment" >
+        <action
+            android:id="@+id/action_nutrientsListFragment_to_nutrientsDetailFragment"
+            app:destination="@id/nutrientsDetailFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/nutrientsDetailFragment"
+        android:name="com.zerdasoftware.nutrientsbook.NutrientsDetailFragment"
+        android:label="NutrientsDetailFragment" >
+        <action
+            android:id="@+id/action_nutrientsDetailFragment_to_nutrientsListFragment"
+            app:destination="@id/nutrientsListFragment" />
+    </fragment>
+</navigation>
