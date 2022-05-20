@@ -4,22 +4,75 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".NutrientsDetailFragment">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".NutrientsDetailFragment">
 
-        <Button
-            android:id="@+id/ButtonNutrients_detail"
+        <ImageView
+            android:id="@+id/imageViewNutrientDetail"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:minHeight="200dp"
+            android:scaleType="fitCenter"
+            android:layout_margin="10dp"
+            android:src="@drawable/ic_launcher_background" />
+        <TextView
+            android:id="@+id/textViewNutrientTitleDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Go to Nutrients List"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            android:text="Nutrient Title Detail"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_below="@id/imageViewNutrientDetail"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <TextView
+            android:id="@+id/textViewNutrientCalorieDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrient Calorie Detail"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_below="@id/textViewNutrientTitleDetail"/>
+
+        <TextView
+            android:id="@+id/textViewNutrientCarbohydrateDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrient Carbohydrate Detail"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_below="@id/textViewNutrientCalorieDetail"/>
+
+        <TextView
+            android:id="@+id/textViewNutrientProteinDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrient Protein Detail"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_below="@id/textViewNutrientCarbohydrateDetail"/>
+
+        <TextView
+            android:id="@+id/textViewNutrientFatDetail"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nutrient Fat Detail"
+            android:textSize="18sp"
+            android:layout_centerHorizontal="true"
+            android:layout_margin="10dp"
+            android:layout_below="@id/textViewNutrientProteinDetail"/>
+
+
+
+
+
+    </RelativeLayout>
 
 </layout>
