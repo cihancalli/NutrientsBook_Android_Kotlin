@@ -19,5 +19,9 @@
         <action
             android:id="@+id/action_nutrientsDetailFragment_to_nutrientsListFragment"
             app:destination="@id/nutrientsListFragment" />
+        <argument
+            android:name="nutrientsID"
+            app:argType="integer"
+            android:defaultValue="0" />
     </fragment>
 </navigation>
