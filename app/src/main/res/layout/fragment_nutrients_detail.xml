@@ -37,41 +37,53 @@
             android:id="@+id/textViewNutrientCalorieDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nutrient Calorie Detail"
-            android:textSize="18sp"
+            android:layout_below="@id/textViewNutrientTitleDetail"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_below="@id/textViewNutrientTitleDetail"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Nutrient Calorie Detail"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewNutrientCarbohydrateDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nutrient Carbohydrate Detail"
-            android:textSize="18sp"
+            android:layout_below="@id/textViewNutrientCalorieDetail"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_below="@id/textViewNutrientCalorieDetail"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Nutrient Carbohydrate Detail"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewNutrientProteinDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nutrient Protein Detail"
-            android:textSize="18sp"
+            android:layout_below="@id/textViewNutrientCarbohydrateDetail"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_below="@id/textViewNutrientCarbohydrateDetail"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Nutrient Protein Detail"
+            android:textSize="18sp" />
 
         <TextView
             android:id="@+id/textViewNutrientFatDetail"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Nutrient Fat Detail"
-            android:textSize="18sp"
+            android:layout_below="@id/textViewNutrientProteinDetail"
             android:layout_centerHorizontal="true"
-            android:layout_margin="10dp"
-            android:layout_below="@id/textViewNutrientProteinDetail"/>
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:text="Nutrient Fat Detail"
+            android:textSize="18sp" />
 
     </RelativeLayout>
 
