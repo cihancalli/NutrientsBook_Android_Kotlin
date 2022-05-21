@@ -10,7 +10,6 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.zerdasoftware.nutrientsbook.R
 import com.zerdasoftware.nutrientsbook.adapter.NutrientRecyclerAdapter
-import com.zerdasoftware.nutrientsbook.util.myPlugin
 import com.zerdasoftware.nutrientsbook.viewmodel.NutrientListViewModel
 import kotlinx.android.synthetic.main.fragment_nutrients_list.*
 
@@ -38,9 +37,6 @@ class NutrientsListFragment : Fragment() {
 
         viewModel = ViewModelProviders.of(this).get(NutrientListViewModel::class.java)
         viewModel.refreshData()
-
-        var myString = "Cİhan"
-        myString.myPlugin("Çallı ")
 
         recyclerViewNutrientsList.layoutManager = LinearLayoutManager(context)
         recyclerViewNutrientsList.adapter = nutrientRecyclerAdapter
