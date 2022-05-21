@@ -43,7 +43,6 @@ class NutrientListViewModel : ViewModel() {
                         NutrientLoading.value = false
                         e.printStackTrace()
                     }
-
                 })
         )
     }
