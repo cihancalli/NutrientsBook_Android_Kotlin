@@ -41,6 +41,14 @@ class NutrientsListFragment : Fragment() {
         recyclerViewNutrientsList.layoutManager = LinearLayoutManager(context)
         recyclerViewNutrientsList.adapter = nutrientRecyclerAdapter
 
+        swipeRefreshLayout.setOnRefreshListener {
+            progressBarLoadingNutrient.visibility = View.VISIBLE
+            textViewNutrientErrorMessage.visibility = View.GONE
+            recyclerViewNutrientsList.visibility = View.GONE
+            viewModel.refreshData()
+            swipeRefreshLayout.isRefreshing = false
+        }
+
         observeLiveData()
     }
 
