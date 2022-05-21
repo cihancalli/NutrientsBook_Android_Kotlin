@@ -2,10 +2,10 @@ package com.zerdasoftware.nutrientsbook.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.zerdasoftware.nutrientsbook.model.Nutrient
 import com.zerdasoftware.nutrientsbook.service.NutrientAPIService
 import com.zerdasoftware.nutrientsbook.service.NutrientDatabase
+import com.zerdasoftware.nutrientsbook.util.PrivateSharedPreferences
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableSingleObserver
@@ -20,6 +20,8 @@ class NutrientListViewModel(application: Application) : BaseViewModel(applicatio
     private val NutrientAPIService = NutrientAPIService()
     //Kullan at
     private val disposable = CompositeDisposable()
+
+    private val privateSharedPreferences = PrivateSharedPreferences(getApplication())
 
 
     fun refreshData(){
@@ -66,5 +68,6 @@ class NutrientListViewModel(application: Application) : BaseViewModel(applicatio
             }
             showNutrientData(NutrientsList)
         }
+        privateSharedPreferences.saveTime(System.nanoTime())
     }
 }
