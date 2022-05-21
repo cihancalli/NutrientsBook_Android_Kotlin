@@ -45,7 +45,7 @@ class NutrientsListFragment : Fragment() {
             progressBarLoadingNutrient.visibility = View.VISIBLE
             textViewNutrientErrorMessage.visibility = View.GONE
             recyclerViewNutrientsList.visibility = View.GONE
-            viewModel.refreshData()
+            viewModel.refreshAPIData()
             swipeRefreshLayout.isRefreshing = false
         }
 

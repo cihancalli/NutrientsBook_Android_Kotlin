@@ -1,6 +1,7 @@
 package com.zerdasoftware.nutrientsbook.viewmodel
 
 import android.app.Application
+import android.widget.Toast
 import androidx.lifecycle.MutableLiveData
 import com.zerdasoftware.nutrientsbook.model.Nutrient
 import com.zerdasoftware.nutrientsbook.service.NutrientAPIService
@@ -13,9 +14,13 @@ import io.reactivex.schedulers.Schedulers
 import kotlinx.coroutines.launch
 
 class NutrientListViewModel(application: Application) : BaseViewModel(application) {
+
     val Nutrients = MutableLiveData<List<Nutrient>>()
     val NutrientErrorMessage = MutableLiveData<Boolean>()
     val NutrientLoading = MutableLiveData<Boolean>()
+
+    //10 dk lık nonoTime
+    private var updateTime = 10 * 60 * 1000 * 1000 * 1000L
 
     private val NutrientAPIService = NutrientAPIService()
     //Kullan at
@@ -24,10 +29,33 @@ class NutrientListViewModel(application: Application) : BaseViewModel(applicatio
     private val privateSharedPreferences = PrivateSharedPreferences(getApplication())
 
 
+    //verileri tekrardan yükleme
     fun refreshData(){
+        val saveTime = privateSharedPreferences.getTime()
+
+        if (saveTime != null && saveTime != 0L && System.nanoTime() - saveTime < updateTime){
+            //10 dk nın altında zaman olduğu için SQLite'dan veriyi al
+            getSQLite()
+        }else{
+            fetchDataFromAPI()
+        }
+    }
+
+    fun refreshAPIData(){
         fetchDataFromAPI()
     }
 
+    //SQLite da kayıtlı veriyi çekme
+    private fun getSQLite(){
+        NutrientLoading.value = true
+        launch {
+            val NutrientList = NutrientDatabase(getApplication()).nutrientDAO().getAllNutrient()
+            showNutrientData(NutrientList)
+            Toast.makeText(getApplication(),"get Room",Toast.LENGTH_SHORT).show()
+        }
+    }
+
+    //API üzerinden verileri çekme
     private fun fetchDataFromAPI(){
         NutrientLoading.value = true
         disposable.add(
@@ -37,7 +65,8 @@ class NutrientListViewModel(application: Application) : BaseViewModel(applicatio
                 .subscribeWith(object : DisposableSingleObserver<List<Nutrient>>() {
                     override fun onSuccess(t: List<Nutrient>) {
                         //Başarılı Olursa
-                        sQLiteSave(t)
+                        setSQLite(t)
+                        Toast.makeText(getApplication(),"get API",Toast.LENGTH_SHORT).show()
                     }
 
                     override fun onError(e: Throwable) {
@@ -50,13 +79,15 @@ class NutrientListViewModel(application: Application) : BaseViewModel(applicatio
         )
     }
 
+    //Verileri layout üzerinde gösterme
     private fun showNutrientData(NutrientsList:List<Nutrient>){
         Nutrients.value = NutrientsList
         NutrientErrorMessage.value = false
         NutrientLoading.value = false
     }
 
-    private fun sQLiteSave(NutrientsList:List<Nutrient>){
+    //API den çekilen verileri SQLite kaydetme
+    private fun setSQLite(NutrientsList:List<Nutrient>){
         launch {
             val dao = NutrientDatabase(getApplication()).nutrientDAO()
             dao.deleteALLNutrient()
@@ -68,6 +99,7 @@ class NutrientListViewModel(application: Application) : BaseViewModel(applicatio
             }
             showNutrientData(NutrientsList)
         }
+        //verilerin son çekilme zamanını kaydetme
         privateSharedPreferences.saveTime(System.nanoTime())
     }
 }

@@ -2,7 +2,6 @@ package com.zerdasoftware.nutrientsbook.util
 
 import android.content.Context
 import android.content.SharedPreferences
-import android.preference.PreferenceManager
 import androidx.core.content.edit
 
 class PrivateSharedPreferences {
@@ -16,7 +15,7 @@ class PrivateSharedPreferences {
 
         private val lock = Any()
         operator fun invoke(context: Context) : PrivateSharedPreferences = instance ?: synchronized(lock) {
-            instance ?: PrivateSharedPreferences(context).also {
+            instance ?: createPrivateSharedPreferences(context).also {
                 instance = it
             }
         }
@@ -32,4 +31,6 @@ class PrivateSharedPreferences {
             putLong(timeString,timeData)
         }
     }
+
+    fun getTime() = sharedPreferences?.getLong(timeString,0)
 }
