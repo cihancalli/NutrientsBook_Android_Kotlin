@@ -6,7 +6,7 @@
 
     <data>
         <variable
-            name="NutrientDetail"
+            name="nutrientDetail"
             type="com.zerdasoftware.nutrientsbook.model.Nutrient" />
     </data>
 
@@ -25,8 +25,8 @@
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
             android:minHeight="200dp"
-            android:scaleType="fitCenter"
-            android:src="@drawable/ic_launcher_background" />
+            android:downloadImage="@{nutrientDetail.nutrientImage}"
+            android:scaleType="fitCenter"/>
 
         <TextView
             android:id="@+id/textViewNutrientTitleDetail"
@@ -38,7 +38,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@{NutrientDetail.nutrientTitle}"
+            android:text="@{nutrientDetail.nutrientTitle}"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -52,7 +52,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@{NutrientDetail.nutrientCalorie}"
+            android:text="@{nutrientDetail.nutrientCalorie}"
             android:textSize="18sp" />
 
         <TextView
@@ -65,7 +65,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@{NutrientDetail.nutrientCalorie}"
+            android:text="@{nutrientDetail.nutrientCalorie}"
             android:textSize="18sp" />
 
         <TextView
@@ -78,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@{NutrientDetail.nutrientProtein}"
+            android:text="@{nutrientDetail.nutrientProtein}"
             android:textSize="18sp" />
 
         <TextView
@@ -91,7 +91,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="@{NutrientDetail.nutrientFat}"
+            android:text="@{nutrientDetail.nutrientFat}"
             android:textSize="18sp" />
 
     </RelativeLayout>

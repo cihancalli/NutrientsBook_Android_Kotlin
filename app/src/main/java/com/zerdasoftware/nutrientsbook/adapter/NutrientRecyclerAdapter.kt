@@ -24,7 +24,6 @@ class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerV
             val action = NutrientsListFragmentDirections.actionNutrientsListFragmentToNutrientsDetailFragment(it)
             Navigation.findNavController(view).navigate(action)
         }
-
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NutrientViewHolder {
@@ -40,20 +39,6 @@ class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerV
     override fun onBindViewHolder(holder: NutrientViewHolder, position: Int) {
         holder.view.nutrientRow = NutrientList[position]
         holder.view.listener = this
-
-
-        /*
-        holder.itemView.textViewNutrientTitleRow.text = NutrientList.get(position).nutrientTitle
-        holder.itemView.textViewNutrientCalorieRow.text = NutrientList.get(position).nutrientCalorie
-        holder.itemView.setOnClickListener {
-            val action = NutrientsListFragmentDirections.actionNutrientsListFragmentToNutrientsDetailFragment(NutrientList.get(position).uuid)
-            Navigation.findNavController(it).navigate(action )
-        }
-        NutrientList.get(position).nutrientImage?.let {
-            holder.itemView.imageViewNutrientRow.fetchImage(
-                it,CreatePlaceholder(holder.itemView.context))
-        }
-         */
     }
 
     fun NutrientListUpdate(newNutrientList: List<Nutrient>){
