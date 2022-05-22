@@ -4,6 +4,12 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
+    <data>
+        <variable
+            name="NutrientDetail"
+            type="com.zerdasoftware.nutrientsbook.model.Nutrient" />
+    </data>
+
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -32,7 +38,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nutrient Title Detail"
+            android:text="@{NutrientDetail.nutrientTitle}"
             android:textSize="20sp"
             android:textStyle="bold" />
 
@@ -46,7 +52,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nutrient Calorie Detail"
+            android:text="@{NutrientDetail.nutrientCalorie}"
             android:textSize="18sp" />
 
         <TextView
@@ -59,7 +65,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nutrient Carbohydrate Detail"
+            android:text="@{NutrientDetail.nutrientCalorie}"
             android:textSize="18sp" />
 
         <TextView
@@ -72,7 +78,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nutrient Protein Detail"
+            android:text="@{NutrientDetail.nutrientProtein}"
             android:textSize="18sp" />
 
         <TextView
@@ -85,7 +91,7 @@
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Nutrient Fat Detail"
+            android:text="@{NutrientDetail.nutrientFat}"
             android:textSize="18sp" />
 
     </RelativeLayout>
