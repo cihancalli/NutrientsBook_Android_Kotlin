@@ -9,16 +9,26 @@ import androidx.recyclerview.widget.RecyclerView
 import com.zerdasoftware.nutrientsbook.R
 import com.zerdasoftware.nutrientsbook.databinding.NutrientRecyclerRowBinding
 import com.zerdasoftware.nutrientsbook.model.Nutrient
+import com.zerdasoftware.nutrientsbook.view.NutrientsListFragmentDirections
+import kotlinx.android.synthetic.main.nutrient_recycler_row.view.*
 
-class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerView.Adapter<NutrientRecyclerAdapter.NutrientViewHolder>() {
+class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerView.Adapter<NutrientRecyclerAdapter.NutrientViewHolder>(),NutrientClickListener {
 
     class NutrientViewHolder(var view:NutrientRecyclerRowBinding) :RecyclerView.ViewHolder(view.root){
 
     }
 
+    override fun nutrientTapped(view: View) {
+        val uuid = view.nutrientID.text.toString().toIntOrNull()
+        uuid?.let {
+            val action = NutrientsListFragmentDirections.actionNutrientsListFragmentToNutrientsDetailFragment(it)
+            Navigation.findNavController(view).navigate(action)
+        }
+
+    }
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): NutrientViewHolder {
         val inflater = LayoutInflater.from(parent.context)
-        //val view = inflater.inflate(R.layout.nutrient_recycler_row,parent,false)
         val view = DataBindingUtil.inflate<NutrientRecyclerRowBinding>(inflater,R.layout.nutrient_recycler_row,parent,false )
         return NutrientViewHolder(view)
     }
@@ -29,6 +39,7 @@ class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerV
 
     override fun onBindViewHolder(holder: NutrientViewHolder, position: Int) {
         holder.view.nutrientRow = NutrientList[position]
+        holder.view.listener = this
 
 
         /*
@@ -50,4 +61,6 @@ class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerV
         NutrientList.addAll(newNutrientList)
         notifyDataSetChanged()
     }
+
+
 }
