@@ -20,7 +20,7 @@
             android:id="@+id/action_nutrientsDetailFragment_to_nutrientsListFragment"
             app:destination="@id/nutrientsListFragment" />
         <argument
-            android:name="nutrientsID"
+            android:name="nutrientID"
             app:argType="integer"
             android:defaultValue="0" />
     </fragment>

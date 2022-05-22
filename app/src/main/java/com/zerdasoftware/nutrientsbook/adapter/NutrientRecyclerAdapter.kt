@@ -32,7 +32,7 @@ class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerV
         holder.itemView.textViewNutrientCalorieRow.text = NutrientList.get(position).nutrientCalorie
 
         holder.itemView.setOnClickListener {
-            val action = NutrientsListFragmentDirections.actionNutrientsListFragmentToNutrientsDetailFragment(0)
+            val action = NutrientsListFragmentDirections.actionNutrientsListFragmentToNutrientsDetailFragment(NutrientList.get(position).uuid)
             Navigation.findNavController(it).navigate(action )
         }
 

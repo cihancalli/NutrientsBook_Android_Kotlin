@@ -1,14 +1,20 @@
 package com.zerdasoftware.nutrientsbook.viewmodel
 
+import android.app.Application
 import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
 import com.zerdasoftware.nutrientsbook.model.Nutrient
+import com.zerdasoftware.nutrientsbook.service.NutrientDatabase
+import kotlinx.coroutines.launch
+import java.util.*
 
-class NutrientDetailViewModel: ViewModel() {
+class NutrientDetailViewModel(application: Application): BaseViewModel(application) {
     val NutrientLiveData = MutableLiveData<Nutrient>()
 
-    fun getRoomData (){
-        val banana = Nutrient("banana", "100","10","5","1","https://www.onlygfx.com/wp-content/uploads/2020/02/banana-1.png")
-        NutrientLiveData.value = banana
+    fun getRoomData (uuid: Int){
+        launch {
+            val dao = NutrientDatabase(getApplication()).nutrientDAO()
+            val Nutrient = dao.getNutrient(uuid)
+            NutrientLiveData.value = Nutrient
+        }
     }
 }
