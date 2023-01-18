@@ -12,7 +12,8 @@ import com.zerdasoftware.nutrientsbook.model.Nutrient
 import com.zerdasoftware.nutrientsbook.view.NutrientsListFragmentDirections
 import kotlinx.android.synthetic.main.nutrient_recycler_row.view.*
 
-class NutrientRecyclerAdapter(val NutrientList : ArrayList<Nutrient>) :RecyclerView.Adapter<NutrientRecyclerAdapter.NutrientViewHolder>(),NutrientClickListener {
+class NutrientRecyclerAdapter(private val NutrientList : ArrayList<Nutrient>)
+    :RecyclerView.Adapter<NutrientRecyclerAdapter.NutrientViewHolder>(),NutrientClickListener {
 
     class NutrientViewHolder(var view:NutrientRecyclerRowBinding) :RecyclerView.ViewHolder(view.root){
 
